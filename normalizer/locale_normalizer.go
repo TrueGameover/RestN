@@ -1,6 +1,8 @@
 package normalizer
 
-import "RestN/rest"
+import (
+	"RestN/rest"
+)
 
 type LocaleNormalizer struct {
 	rest.IResponseNormalizer
@@ -16,7 +18,7 @@ func (n LocaleNormalizer) Normalize(object interface{}, _ rest.NormalizeMethod, 
 		return dict
 	}
 
-	return nil
+	return object
 }
 
 func (n LocaleNormalizer) Support(object interface{}) (ok bool) {
