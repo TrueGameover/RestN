@@ -15,7 +15,7 @@ For example:
 ```
 type Test struct {
     time time.Time,
-    another Struct { gg int }
+    another struct { gg int }
 }
 ```
 
