@@ -49,8 +49,8 @@ func (n TimeNormalizer) Normalize(object interface{}, normalize rest.NormalizeMe
 }
 
 func (n TimeNormalizer) Support(object interface{}) (ok bool) {
-_, ok = object.(rest.Locale)
-return
+    _, ok = object.(rest.Locale)
+    return
 }
 
 ```
