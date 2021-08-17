@@ -22,6 +22,7 @@ type Test struct {
 How "time" field would be serialized to json? Usually this behavior needs explicit conversion to string in every place.
 Normalizers resolve this pain.
 
+<br>
 Let's implement simple normalizer:
 
 ```
@@ -36,12 +37,12 @@ func (n TimeNormalizer) Normalize(object interface{}, normalize rest.NormalizeMe
     // options - your params that passed to normalizers 
     
     if test, ok := object.(Test); ok {
-        dict := map[string]interface{}{
-            "Time": test.time.Format(time.RFC3339),
-            "Another": normalize(test.another, options, depth), // if need normalize another struct deeper
-        }
+            dict := map[string]interface{}{
+                "Time": test.time.Format(time.RFC3339),
+                "Another": normalize(test.another, options, depth), // if need normalize another struct deeper
+            }
 
-		return dict
+	    return dict
 	}
 
     return object
