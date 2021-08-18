@@ -3,7 +3,7 @@
 Purpose of this library is more control under responses.
 
 Install it:<br>
-`go get https://github.com/TrueGameover/RestN`
+`go get github.com/TrueGameover/RestN`
 
 <br>
 <br>
@@ -14,8 +14,8 @@ For example:
 
 ```
 type Test struct {
-    time time.Time,
-    another struct { gg int }
+    Time time.Time,
+    Another struct { GG int }
 }
 ```
 
@@ -38,8 +38,8 @@ func (n TimeNormalizer) Normalize(object interface{}, normalize rest.NormalizeMe
     
     if test, ok := object.(Test); ok {
             dict := map[string]interface{}{
-                "Time": test.time.Format(time.RFC3339),
-                "Another": normalize(test.another, options, depth), // if need normalize another struct deeper
+                "Time": test.Time.Format(time.RFC3339),
+                "Another": normalize(test.Another, options, depth), // if need normalize another struct deeper
             }
 
 	    return dict
@@ -67,7 +67,7 @@ Create response:<br>
 
 ```
 r := rest.RestResponse{}
-r.SetBody(Test{ time: time.Now(), another: {gg: 5} })
+r.SetBody(Test{ Time: time.Now(), Another: {GG: 5} })
 resp.SetNormalizationOption("custom_key", "custom_value") // your customization
 println(r.NormalizeResponse())
 ```
