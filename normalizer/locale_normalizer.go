@@ -1,7 +1,7 @@
 package normalizer
 
 import (
-	"RestN/rest"
+	"github.com/TrueGameover/RestN/rest"
 )
 
 type LocaleNormalizer struct {

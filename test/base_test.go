@@ -1,8 +1,8 @@
 package test
 
 import (
-	"RestN/normalizer"
-	"RestN/rest"
+	"github.com/TrueGameover/RestN/normalizer"
+	"github.com/TrueGameover/RestN/rest"
 	"github.com/stretchr/testify/require"
 	"reflect"
 	"testing"

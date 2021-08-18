@@ -1,7 +1,7 @@
 package test
 
 import (
-	"RestN/rest"
+	"github.com/TrueGameover/RestN/rest"
 	"github.com/stretchr/testify/require"
 	"testing"
 )

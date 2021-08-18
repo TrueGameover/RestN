@@ -1,6 +1,6 @@
 package normalizer
 
-import "RestN/rest"
+import "github.com/TrueGameover/RestN/rest"
 
 type RestErrorNormalizer struct {
 	rest.IResponseNormalizer

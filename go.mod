@@ -1,4 +1,4 @@
-module RestN
+module github.com/TrueGameover/RestN
 
 go 1.15
 
