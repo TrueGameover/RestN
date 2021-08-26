@@ -21,7 +21,7 @@ func (v SyncMapNormalizer) Normalize(object interface{}, normalize rest.Normaliz
 		return true
 	})
 
-	return dict
+	return &dict
 }
 
 func (v SyncMapNormalizer) Support(object interface{}) (ok bool) {

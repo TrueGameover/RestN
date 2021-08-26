@@ -7,17 +7,13 @@ type RestErrorNormalizer struct {
 }
 
 func (n RestErrorNormalizer) Normalize(object interface{}, normalize rest.NormalizeMethod, options rest.Options, depth int) interface{} {
-
-	if re, ok := object.(rest.RestError); ok {
-		dict := map[string]interface{}{
-			"Message":    re.Message,
-			"Validation": normalize(re.Validation, options, depth),
-		}
-
-		return dict
+	re, _ := object.(rest.RestError)
+	dict := map[string]interface{}{
+		"Message":    re.Message,
+		"Validation": normalize(re.Validation, options, depth),
 	}
 
-	return object
+	return &dict
 }
 
 func (n RestErrorNormalizer) Support(object interface{}) (ok bool) {

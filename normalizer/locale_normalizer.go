@@ -9,16 +9,14 @@ type LocaleNormalizer struct {
 }
 
 func (n LocaleNormalizer) Normalize(object interface{}, _ rest.NormalizeMethod, _ rest.Options, _ int) interface{} {
-	if locale, ok := object.(rest.Locale); ok {
-		dict := map[string]interface{}{
-			"Code": locale.Code,
-			"Name": locale.Name,
-		}
+	locale, _ := object.(rest.Locale)
 
-		return dict
+	dict := map[string]interface{}{
+		"Code": locale.Code,
+		"Name": locale.Name,
 	}
 
-	return object
+	return &dict
 }
 
 func (n LocaleNormalizer) Support(object interface{}) (ok bool) {

@@ -7,16 +7,14 @@ type FieldValidationErrorNormalizer struct {
 }
 
 func (n FieldValidationErrorNormalizer) Normalize(object interface{}, _ rest.NormalizeMethod, _ rest.Options, _ int) interface{} {
-	if fe, ok := object.(rest.FieldValidationError); ok {
-		dict := map[string]interface{}{
-			"Field":   fe.Field,
-			"Message": fe.Message,
-		}
+	fe, _ := object.(rest.FieldValidationError)
 
-		return dict
+	dict := map[string]interface{}{
+		"Field":   fe.Field,
+		"Message": fe.Message,
 	}
 
-	return object
+	return &dict
 }
 
 func (n FieldValidationErrorNormalizer) Support(object interface{}) (ok bool) {
