@@ -15,7 +15,7 @@ func (v SyncMapNormalizer) Normalize(object interface{}, normalize rest.Normaliz
 
 	val.Range(func(key, value interface{}) bool {
 		if str, ok := key.(string); ok {
-			dict[str] = value
+			dict[str] = normalize(value, options, depth)
 		}
 
 		return true
