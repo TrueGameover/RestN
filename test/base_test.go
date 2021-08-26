@@ -5,6 +5,7 @@ import (
 	"github.com/TrueGameover/RestN/rest"
 	"github.com/stretchr/testify/require"
 	"reflect"
+	"sync"
 	"testing"
 )
 
@@ -141,4 +142,21 @@ func TestDepth(t *testing.T) {
 	require.Empty(t, result["Locale"])
 	require.Empty(t, result["Error"])
 	require.Empty(t, result["Body"])
+}
+
+func TestSyncMap(t *testing.T) {
+	normalizer.Init()
+	r := createResponse()
+
+	m := sync.Map{}
+	m.Store("test", 15)
+	r.Body = m
+
+	result, ok := r.NormalizeResponse().(map[string]interface{})
+	require.True(t, ok)
+	require.NotEmpty(t, result["Body"])
+	bodyMap, ok := result["Body"].(map[string]interface{})
+	require.True(t, ok)
+	require.NotEmpty(t, bodyMap["test"])
+	require.Equal(t, 15, bodyMap["test"])
 }

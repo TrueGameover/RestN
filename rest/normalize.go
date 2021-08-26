@@ -7,7 +7,7 @@ type IResponseNormalizer interface {
 	Support(object interface{}) bool
 }
 
-const DEFAULT_DEPTH = 100
+const DefaultDepth = 100
 
 var normalizers []IResponseNormalizer
 
@@ -21,7 +21,7 @@ func ClearAllNormalizers() {
 
 func (response *RestResponse) NormalizeResponse() interface{} {
 	if response.depth == 0 {
-		response.depth = DEFAULT_DEPTH
+		response.depth = DefaultDepth
 	}
 
 	return normalize(*response, response.options, response.depth)

@@ -11,6 +11,7 @@ func Init() {
 	rest.RegisterNormalizer(FieldValidationErrorNormalizer{})
 	rest.RegisterNormalizer(ValidationNormalizer{})
 	rest.RegisterNormalizer(SliceNormalizer{})
+	rest.RegisterNormalizer(SyncMapNormalizer{})
 }
 
 func Reset() {
