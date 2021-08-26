@@ -10,7 +10,7 @@ type SyncMapNormalizer struct {
 }
 
 func (v SyncMapNormalizer) Normalize(object interface{}, normalize rest.NormalizeMethod, options rest.Options, depth int) interface{} {
-	val, _ := object.(sync.Map)
+	val, _ := object.(*sync.Map)
 	dict := map[string]interface{}{}
 
 	val.Range(func(key, value interface{}) bool {
@@ -25,6 +25,6 @@ func (v SyncMapNormalizer) Normalize(object interface{}, normalize rest.Normaliz
 }
 
 func (v SyncMapNormalizer) Support(object interface{}) (ok bool) {
-	_, ok = object.(sync.Map)
+	_, ok = object.(*sync.Map)
 	return
 }

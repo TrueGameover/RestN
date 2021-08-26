@@ -150,7 +150,7 @@ func TestSyncMap(t *testing.T) {
 
 	m := sync.Map{}
 	m.Store("test", 15)
-	r.Body = m
+	r.Body = &m
 
 	result, ok := r.NormalizeResponse().(map[string]interface{})
 	require.True(t, ok)
